@@ -1,0 +1,25 @@
+Xb360 - Big Endian
+0x4 - "head"
+
+0x11C - 
+0x18C - mapName
+0x1B0 - folder structure
+
+
+0x14001 - beginning of strings (audio?)
+
+
+
+-----------------------------------------------------------
+
+parsing maps for absolute noobs.
+Read first 4 bytes.  
+"head" ? Big Endian
+"deah" ? Little Endian
+
+halo likes to use "strings as uint32". But it reverses them to be clever.
+
+goto tagDataOffset
+read tagDataIndex
+read tagData
+halo loads tagDataIndex into memory at 0x40450000, so all your tag paths can be resolved via tagPath-0x40450000+tagDataIndex
